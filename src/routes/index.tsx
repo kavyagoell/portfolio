@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { profile, focus } from "@/lib/profile";
+import { profile, focus, projects, skills } from "@/lib/profile";
 import { SectionLabel } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/")({
@@ -90,6 +90,85 @@ function Index() {
             Open to entry-level roles, internships and collaborative opportunities.{" "}
             <Link to="/contact" className="font-medium text-primary underline underline-offset-4">Let's talk</Link>
           </p>
+        </div>
+      </section>
+
+      {/* Featured projects */}
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <SectionLabel>Featured projects</SectionLabel>
+            <h2 className="mt-4 text-3xl font-semibold md:text-5xl">Selected work.</h2>
+          </div>
+          <Link to="/projects" className="inline-flex items-center gap-2 font-medium text-primary">
+            All project details <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {projects.map((p) => (
+            <Link key={p.name} to="/projects" className="group flex flex-col overflow-hidden rounded-3xl border bg-card transition-shadow hover:shadow-soft">
+              <div className="bg-arch flex h-48 items-end justify-between p-6 text-primary-foreground">
+                <h3 className="text-4xl font-bold">{p.name}</h3>
+                <span className="text-5xl font-bold opacity-60">{p.no}</span>
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <p className="font-semibold">{p.subtitle}</p>
+                <p className="mt-2 text-muted-foreground">{p.points[0]}</p>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {p.tags.slice(0, 5).map((t) => (
+                    <li key={t} className="rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground">{t}</li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills snapshot */}
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <div className="rounded-3xl bg-surface p-8 md:p-12">
+          <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
+            <div>
+              <SectionLabel>Skills</SectionLabel>
+              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">What I work with.</h2>
+              <Link to="/skills" className="mt-6 inline-flex items-center gap-2 font-medium text-primary">
+                Full skill list <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {skills.slice(0, 4).map((g) => (
+                <div key={g.title} className="rounded-2xl bg-card p-5">
+                  <h3 className="font-semibold">{g.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{g.items.slice(0, 5).join(" · ")}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education + contact CTA */}
+      <section className="mx-auto grid max-w-6xl gap-5 px-5 py-16 md:grid-cols-[1fr_1.4fr] md:px-8">
+        <div className="rounded-3xl border bg-card p-8">
+          <SectionLabel>Education</SectionLabel>
+          <h3 className="mt-4 text-2xl font-semibold">B.Tech in Computer Science and Engineering</h3>
+          <p className="mt-1 text-muted-foreground">SRM Institute of Science and Technology, Chennai</p>
+          <div className="mt-6 flex gap-8">
+            <div><p className="text-3xl font-bold">2027</p><p className="text-sm text-muted-foreground">Expected graduation</p></div>
+            <div><p className="text-3xl font-bold">8.74</p><p className="text-sm text-muted-foreground">CGPA</p></div>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between rounded-3xl bg-ink p-8 text-ink-foreground md:p-10">
+          <h2 className="text-3xl font-semibold leading-tight md:text-4xl">Have a role that needs data and AI skills? Let's talk.</h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">
+              <Mail className="h-4 w-4" /> {profile.email}
+            </a>
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-ink-foreground/30 px-6 py-3 text-sm font-medium">
+              All contact options <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </>
