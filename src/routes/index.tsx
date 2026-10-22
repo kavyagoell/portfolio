@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { profile, focus, projects, skills } from "@/lib/profile";
 import { SectionLabel } from "@/components/SiteHeader";
-import kavyaProfile from "@/assets/kavya-profile.jpg.asset.json";
+import kavyaProfile from "@/assets/kavya-profile.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
