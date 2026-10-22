@@ -5,7 +5,7 @@ export const profile = {
   phone: "9560707146",
   // Add real URLs when available — left empty on purpose.
   linkedin: "https://www.linkedin.com/in/kavya-goel-276a9330b?trk=contact-info",
-  github: "",
+  github: "https://github.com/kavyagoell",
   resume: "", // e.g. "/downloads/kavya-goel-resume.pdf"
 };
 
