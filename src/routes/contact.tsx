@@ -45,7 +45,7 @@ function Contact() {
             return (
               <li key={label}>
                 {href ? (
-                  <a href={href} className="flex items-center gap-4 rounded-2xl bg-card p-5 transition-shadow hover:shadow-soft focus-visible:outline-2 focus-visible:outline-ring">{inner}</a>
+                  <a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex items-center gap-4 rounded-2xl bg-card p-5 transition-shadow hover:shadow-soft focus-visible:outline-2 focus-visible:outline-ring">{inner}</a>
                 ) : (
                   <div className="flex items-center gap-4 rounded-2xl bg-card/60 p-5 opacity-70">{inner}</div>
                 )}
