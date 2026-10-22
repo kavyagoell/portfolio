@@ -46,7 +46,7 @@ function Projects() {
               </ul>
               <p className="mt-6 text-sm text-muted-foreground">
                 {profile.github ? (
-                  <a href={profile.github} className="font-medium text-primary underline underline-offset-4">Source code on GitHub</a>
+                  <a href={profile.github} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-4">Source code on GitHub</a>
                 ) : (
                   "Source code and demo links coming soon."
                 )}
