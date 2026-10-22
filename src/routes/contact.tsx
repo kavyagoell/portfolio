@@ -22,8 +22,8 @@ function Contact() {
     { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
     { icon: Phone, label: "Phone", value: profile.phone, href: `tel:+91${profile.phone}` },
     { icon: GraduationCap, label: "University email", value: profile.uniEmail, href: `mailto:${profile.uniEmail}` },
-    { icon: Linkedin, label: "LinkedIn", value: profile.linkedin || "Profile link coming soon", href: profile.linkedin },
-    { icon: Github, label: "GitHub", value: profile.github || "Profile link coming soon", href: profile.github },
+    { icon: Linkedin, label: "LinkedIn", value: profile.linkedin ? "View profile" : "Profile link coming soon", href: profile.linkedin },
+    { icon: Github, label: "GitHub", value: profile.github ? "kavyagoell" : "Profile link coming soon", href: profile.github },
   ];
   return (
     <section className="mx-auto max-w-6xl px-5 py-12 md:px-8">
