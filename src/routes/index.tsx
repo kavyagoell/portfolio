@@ -60,7 +60,7 @@ function Index() {
             <div className="relative order-1 mx-auto w-full max-w-sm md:order-2">
               <div className="bg-arch relative mx-auto flex aspect-[4/5] w-4/5 items-end justify-center overflow-hidden rounded-t-full">
                 <img
-                  src={kavyaProfile.url}
+                  src={kavyaProfile}
                   alt="Kavya Goel"
                   className="absolute inset-0 h-full w-full object-cover object-top"
                 />
