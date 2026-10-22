@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { profile, focus, projects, skills } from "@/lib/profile";
 import { SectionLabel } from "@/components/SiteHeader";
+import kavyaProfile from "@/assets/kavya-profile.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,8 +59,11 @@ function Index() {
             </div>
             <div className="relative order-1 mx-auto w-full max-w-sm md:order-2">
               <div className="bg-arch relative mx-auto flex aspect-[4/5] w-4/5 items-end justify-center overflow-hidden rounded-t-full">
-                {/* Replaceable photo placeholder */}
-                <span className="mb-[30%] text-7xl font-bold text-primary-foreground/90">KG</span>
+                <img
+                  src={kavyaProfile.url}
+                  alt="Kavya Goel"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
               </div>
               <span className="absolute left-0 top-1/3 -rotate-12 rounded-full bg-card px-4 py-2 text-sm font-medium shadow-soft">Machine learning</span>
               <span className="absolute right-0 top-12 rotate-12 rounded-full bg-card px-4 py-2 text-sm font-medium shadow-soft">Data analytics</span>
